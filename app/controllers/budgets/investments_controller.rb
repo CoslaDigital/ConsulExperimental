@@ -122,7 +122,7 @@ module Budgets
       end
 
       def allowed_params
-        attributes = [:video_url, :heading_id, :tag_list, :organization_name, :location,
+        attributes = [:heading_id, :tag_list, :organization_name, :location,
                       :terms_of_service, :related_sdg_list,
                       image_attributes: image_attributes,
                       documents_attributes: document_attributes,
