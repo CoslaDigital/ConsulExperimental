@@ -126,7 +126,7 @@ module Budgets
                       :terms_of_service, :related_sdg_list,
                       image_attributes: image_attributes,
                       documents_attributes: document_attributes,
-                      map_location_attributes: map_location_attributes]
+                      map_location_attributes: map_location_attributes ]
 
         [*attributes, translation_params(Budget::Investment)]
       end
