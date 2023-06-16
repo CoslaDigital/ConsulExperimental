@@ -9,8 +9,18 @@ destination_file_path = '/home/deploy/consul/current/public/machine_learning/dat
 csv_file_path = '/home/deploy/consul/current/public/machine_learning/data/ml_comments.csv'
 destination_file = open(destination_file_path, 'wb')
 shutil.copyfileobj(source_file, destination_file)
+source_file.close()
+destination_file.close()
 
-def convert_json_to_csv(json_file, csv_file):
+
+def convert_json_to_csv(json_file, csv_file, debug_file=None):
+    if debug_file:
+        with open(debug_file, 'w') as file:
+            file.write(f"JSON file: {json_file}\n")
+            file.write(f"CSV file: {csv_file}\n")
+            file.write("Conversion completed successfully.\n")
+
+    print ("insede function")
     with open(json_file, 'r') as file:
         data = json.load(file)
 
@@ -23,5 +33,10 @@ def convert_json_to_csv(json_file, csv_file):
         # Write data rows
         for item in data:
             writer.writerow(item.values())
-
-convert_json_to_csv(source_file_path, csv_file_path)
+    
+            
+json_file_path = source_file_path
+csv_file_path = '../data/ml_comments.csv'
+debug_file_path = 'debug.txt'
+print("about to call function")
+convert_json_to_csv(json_file_path, csv_file_path, debug_file_path)
